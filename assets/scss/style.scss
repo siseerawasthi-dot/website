@@ -1,0 +1,55 @@
+@import "./abstracts/variables";
+@import "./components/buttons";
+@import "./components/arrow";
+@import "./mixins/responsive";
+@import "./mixins/mix_button";
+@import './mixins/common_mix';
+@import './mixins/font_mix';
+@import "./layouts/reset";
+@import "./layouts/headers";
+@import "./layouts/header_2";
+@import "./layouts/footers";
+@import "./layouts/container";
+@import './layouts/nav_button';
+@import "./layouts/flex";
+@import "./layouts/banner";
+@import "./pages/index";
+@import "./pages/about";
+@import "./pages/contact";
+@import "./pages/service";
+@import "./pages/counter";
+@import "./pages/testimonial";
+@import "./pages/about";
+@import "./pages/footer";
+
+body{
+    background-color: $dim;
+    height: auto;
+
+    &.dark {
+        background-color: $dim;
+    }
+}
+
+.page_body{
+    // @include border(pink);
+    background-color: $white;
+    // background-color: grey;
+    width: 1440px;
+    margin: auto;
+    overflow: hidden;
+
+    body.dark & {
+        background-color: $black;
+    }
+
+
+
+    @include custom_responsive(0px, 1399.9px){
+        width: 90vw;
+    }
+    @include custom_responsive(0px, 991.9px){
+        position: relative;
+    }
+
+}
