@@ -522,6 +522,16 @@
                 }
             }
 
+            function getBookingErrorMessage(error) {
+                const message = error?.text || error?.message || "";
+
+                if (message.includes("Gmail_API") && message.includes("insufficient authentication scopes")) {
+                    return "Email service needs Gmail re-authorization. Please call or email us directly for now.";
+                }
+
+                return message || "Please try again later.";
+            }
+
             bookingForm?.addEventListener("submit", async (event) => {
                 event.preventDefault();
                 bookingStatus.textContent = "Sending booking request...";
@@ -561,7 +571,7 @@
                     bookingStatus.classList.add("success");
                     bookingForm.reset();
                 } catch (error) {
-                    bookingStatus.textContent = error?.text || error?.message || "Please try again later.";
+                    bookingStatus.textContent = getBookingErrorMessage(error);
                     bookingStatus.classList.add("error");
                 } finally {
                     submitButton.disabled = false;
