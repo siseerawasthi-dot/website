@@ -147,6 +147,57 @@ header .header_box .header_nav ul li a { font-size: 12px; font-weight: 700; }
 
 /* Picture-led hero refresh */
 .banner_sec{position:relative;background:linear-gradient(90deg,rgba(244,248,251,.98) 0%,rgba(244,248,251,.88) 52%,rgba(232,241,247,.96) 100%),radial-gradient(circle at 82% 14%,rgba(9,75,114,.14),transparent 34%)}.banner_sec:before{content:"";position:absolute;inset:0;background-image:linear-gradient(135deg,rgba(9,75,114,.055) 25%,transparent 25%),linear-gradient(135deg,transparent 75%,rgba(9,75,114,.04) 75%);background-size:44px 44px;opacity:.55;pointer-events:none}.banner_sec .banner_div{min-height:720px;position:relative;z-index:1}.banner_sec .banner_div .left_info_div .news_div{box-shadow:0 12px 34px rgba(9,75,114,.1)}.banner_sec .banner_div .left_info_div h1{max-width:650px;color:#063d5f}.banner_sec .banner_div .left_info_div .des_p{max-width:560px}.banner_sec .banner_div .left_info_div .photo_div{right:20px;bottom:42px;padding:18px;border-radius:34px;background:rgba(255,255,255,.72);border:1px solid rgba(9,75,114,.13);box-shadow:0 34px 80px rgba(14,46,66,.2);backdrop-filter:blur(10px)}.banner_sec .banner_div .left_info_div .photo_div:before,.banner_sec .banner_div .left_info_div .photo_div:after{content:"";position:absolute;z-index:-1;border-radius:28px}.banner_sec .banner_div .left_info_div .photo_div:before{width:230px;height:160px;right:-36px;top:52px;background:rgba(9,75,114,.13)}.banner_sec .banner_div .left_info_div .photo_div:after{width:170px;height:110px;left:-42px;bottom:98px;background:rgba(214,174,96,.2)}.banner_sec .banner_div .left_info_div .photo_div .hero_portrait{display:block;width:405px;height:540px;object-fit:cover;object-position:center top;border-radius:26px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4)}.banner_sec .banner_div .left_info_div .photo_div .lawyer_info{right:34px;bottom:34px;width:calc(100% - 68px);height:auto;min-height:92px;padding:18px;border-radius:18px;background:rgba(255,255,255,.94);flex-direction:row;justify-content:space-between;gap:16px;text-align:left;box-shadow:0 18px 46px rgba(15,35,52,.18)}.banner_sec .banner_div .left_info_div .photo_div .lawyer_info .lawyer_identity{min-width:0}.banner_sec .banner_div .left_info_div .photo_div .lawyer_info .lawyer_name{font-size:21px;line-height:1.25;text-align:left;color:#122f43}.banner_sec .banner_div .left_info_div .photo_div .lawyer_info .designation{margin-top:5px;font-size:13px;line-height:1.4;text-align:left}.banner_sec .banner_div .left_info_div .photo_div .plar_button{flex:0 0 auto;min-width:70px;height:42px;padding:0 16px;border-radius:999px;background:#094b72;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-family:"Plus Jakarta Sans";font-size:13px;font-weight:800;letter-spacing:.8px}.banner_sec .banner_div .left_info_div .photo_div .plar_button:hover{background:#d6ae60;color:#102d3f}@media(max-width:1299.9px){.banner_sec .banner_div .left_info_div .photo_div{right:0}.banner_sec .banner_div .left_info_div .photo_div .hero_portrait{width:350px;height:470px}}@media(max-width:991.9px){.banner_sec .banner_div{min-height:0}.banner_sec .banner_div .left_info_div .photo_div{width:fit-content;right:auto;bottom:auto;margin:34px auto 40px}.banner_sec .banner_div .left_info_div .photo_div .hero_portrait{width:min(78vw,380px);height:auto;aspect-ratio:3/4}.banner_sec .banner_div .left_info_div .photo_div .lawyer_info{display:flex}}@media(max-width:575.9px){.banner_sec .banner_div .left_info_div .photo_div{padding:12px;border-radius:24px}.banner_sec .banner_div .left_info_div .photo_div .lawyer_info{position:static;width:auto;margin-top:12px;padding:14px}.banner_sec .banner_div .left_info_div .photo_div .lawyer_info .lawyer_name{font-size:18px}.banner_sec .banner_div .left_info_div .photo_div .plar_button{min-width:62px;height:38px}}
+
+/* Mobile header and hero polish */
+@media(max-width:767.9px){
+  body{background:#33475b}
+  .page_body{width:100%;overflow:hidden}
+  header{background:#f7f8fa}
+  header .header_box{width:100%;height:auto;min-height:116px;padding:12px 16px 14px;display:grid;grid-template-columns:1fr auto auto;grid-template-rows:34px 48px;column-gap:16px;row-gap:10px;align-items:center}
+  header .header_box .change_button{position:static;transform:none;grid-column:1/2;grid-row:1/2;width:168px;max-width:100%;height:32px;border-radius:999px;font-size:14px;font-weight:700;align-items:center;justify-content:center}
+  header .header_box .desktop_language_toggle{position:static;transform:none;grid-column:2/4;grid-row:1/2;justify-self:end;height:32px;padding:0 14px;border-radius:999px;background:#e7f6ff;color:#094b72;font-size:13px;font-weight:700}
+  header .header_box .header_logo{position:static;transform:none;grid-column:1/2;grid-row:2/3;min-width:0;gap:10px;align-items:center}
+  header .header_box .header_logo img{width:42px;height:42px}
+  header .header_box .header_logo h3{font-size:21px;line-height:1.1;letter-spacing:1px;white-space:nowrap}
+  header .header_box .header_search_bar{position:static;transform:none;grid-column:2/3;grid-row:2/3}
+  header .header_box .header_search_bar a{width:38px;height:38px;display:flex;align-items:center;justify-content:center}
+  header .header_box .header_search_bar a i{font-size:27px;color:#2d2f30}
+  header .header_box .nav_icon{position:static;transform:none;grid-column:3/4;grid-row:2/3;display:flex}
+  header .header_box .nav_icon a{width:30px;height:38px;display:flex;align-items:center;justify-content:center}
+  header .header_box .nav_icon a i{font-size:27px;color:#094b72}
+  #nav_bar{top:88px;right:-230px;width:210px;height:auto;min-height:320px}
+  #nav_bar.active_nav{right:16px}
+  .banner_sec{background:linear-gradient(180deg,#f7f8fa 0%,#eef6fb 100%)}
+  .banner_sec:before{opacity:.22}
+  .banner_sec .banner_div{width:100%;padding:22px 18px 0}
+  .banner_sec .banner_div .left_info_div{width:100%;text-align:left}
+  .banner_sec .banner_div .left_info_div .news_div{width:100%;height:auto;margin:0 0 24px;padding:7px;border-radius:24px;align-items:center;gap:12px}
+  .banner_sec .banner_div .left_info_div .news_div a{width:auto;min-width:92px;height:36px;padding:0 18px;align-items:center;font-size:17px}
+  .banner_sec .banner_div .left_info_div .news_div p{font-size:17px;line-height:1.35;letter-spacing:0}
+  .banner_sec .banner_div .left_info_div h1{width:100%;max-width:350px;font-size:42px;line-height:1.03;letter-spacing:0;margin:0 0 20px}
+  .banner_sec .banner_div .left_info_div .des_p{width:100%;max-width:360px;margin-top:0;font-size:20px;line-height:1.55;letter-spacing:0;color:#66717c}
+  .banner_sec .banner_div .left_info_div .get_start_button{width:166px;height:56px;margin-top:30px;border-radius:8px}
+  .banner_sec .banner_div .left_info_div .get_start_button p{font-size:13px;letter-spacing:1.6px}
+  .banner_sec .banner_div .left_info_div .company_pararaph{width:100%;margin-top:38px;font-size:20px;line-height:1.45;letter-spacing:.2px;color:#66717c}
+  .banner_sec .banner_div .left_info_div .legal_focus_list{width:100%;margin-top:22px;margin-bottom:0}
+  .banner_sec .banner_div .left_info_div .legal_focus_list ul{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .banner_sec .banner_div .left_info_div .legal_focus_list li{display:flex;align-items:center;justify-content:center;min-height:40px;padding:8px 10px;border-radius:22px;text-align:center;font-size:14px;line-height:1.2}
+  .banner_sec .banner_div .left_info_div .photo_div{width:min(100%,360px);margin:34px auto 42px}
+  .banner_sec .banner_div .left_info_div .photo_div:before,.banner_sec .banner_div .left_info_div .photo_div:after{display:none}
+  .banner_sec .banner_div .left_info_div .photo_div .hero_portrait{width:100%;height:auto;aspect-ratio:3/4}
+}
+
+@media(max-width:390px){
+  header .header_box{padding-left:12px;padding-right:12px;column-gap:10px}
+  header .header_box .change_button{width:150px;font-size:13px}
+  header .header_box .desktop_language_toggle{padding:0 11px}
+  header .header_box .header_logo h3{font-size:19px}
+  .banner_sec .banner_div{padding-left:14px;padding-right:14px}
+  .banner_sec .banner_div .left_info_div h1{font-size:37px}
+  .banner_sec .banner_div .left_info_div .news_div p{font-size:15px}
+  .banner_sec .banner_div .left_info_div .des_p,.banner_sec .banner_div .left_info_div .company_pararaph{font-size:18px}
+  .banner_sec .banner_div .left_info_div .legal_focus_list li{font-size:13px}
+}
 @media (max-width: 1299.9px) {
   .banner_sec .banner_div { min-height: 0; }
   .banner_sec .banner_div .left_info_div h1 { max-width: 560px; font-size: 52px; }
