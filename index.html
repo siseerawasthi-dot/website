@@ -53,7 +53,6 @@
         rel="stylesheet" />
     <!-- FONT AWESOME  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <!-- MY EXTERNAL CSS  -->
     <link rel="stylesheet" href="./assets/styles/style.css" />
     
@@ -495,26 +494,32 @@
                 templateId: "template_ietrrel",
             };
 
-            if (window.emailjs) {
-                emailjs.init({ publicKey: emailJsConfig.publicKey });
-            }
-
             async function sendEmailJsBooking(booking) {
-                if (!window.emailjs) {
-                    throw new Error("Email service is still loading. Please try again.");
-                }
-
-                return emailjs.send(emailJsConfig.serviceId, emailJsConfig.templateId, {
-                    from_name: booking.name,
-                    reply_to: booking.email,
-                    name: booking.name,
-                    email: booking.email,
-                    phone: booking.phone,
-                    service: booking.service,
-                    date: booking.date,
-                    time: booking.time,
-                    message: booking.message,
+                const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        service_id: emailJsConfig.serviceId,
+                        template_id: emailJsConfig.templateId,
+                        user_id: emailJsConfig.publicKey,
+                        template_params: {
+                            from_name: booking.name,
+                            reply_to: booking.email,
+                            name: booking.name,
+                            email: booking.email,
+                            phone: booking.phone,
+                            service: booking.service,
+                            date: booking.date,
+                            time: booking.time,
+                            message: booking.message,
+                        },
+                    }),
                 });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(errorText || `Email service returned ${response.status}`);
+                }
             }
 
             bookingForm?.addEventListener("submit", async (event) => {
@@ -556,7 +561,7 @@
                     bookingStatus.classList.add("success");
                     bookingForm.reset();
                 } catch (error) {
-                    bookingStatus.textContent = error.message || "Please try again later.";
+                    bookingStatus.textContent = error?.text || error?.message || "Please try again later.";
                     bookingStatus.classList.add("error");
                 } finally {
                     submitButton.disabled = false;
