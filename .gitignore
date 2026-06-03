@@ -1,1 +1,4 @@
 /node_modules
+bookings.db
+bookings.db-*
+localhost-server.*.log
