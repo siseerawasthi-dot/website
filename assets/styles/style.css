@@ -198,6 +198,18 @@ header .header_box .header_nav ul li a { font-size: 12px; font-weight: 700; }
   .banner_sec .banner_div .left_info_div .des_p,.banner_sec .banner_div .left_info_div .company_pararaph{font-size:18px}
   .banner_sec .banner_div .left_info_div .legal_focus_list li{font-size:13px}
 }
+
+/* Identity update polish */
+header .header_box .header_logo h3{line-height:1.12}
+#about_id .about_div .about_logo_box{width:auto;min-width:230px}
+@media(max-width:767.9px){
+  header .header_box{grid-template-columns:minmax(0,1fr) auto auto}
+  header .header_box .header_logo h3{font-size:18px;white-space:normal;max-width:190px}
+  header .header_box .header_logo img{flex:0 0 auto}
+}
+@media(max-width:390px){
+  header .header_box .header_logo h3{font-size:16px;max-width:160px}
+}
 @media (max-width: 1299.9px) {
   .banner_sec .banner_div { min-height: 0; }
   .banner_sec .banner_div .left_info_div h1 { max-width: 560px; font-size: 52px; }
