@@ -53,6 +53,7 @@
         rel="stylesheet" />
     <!-- FONT AWESOME  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <!-- MY EXTERNAL CSS  -->
     <link rel="stylesheet" href="./assets/styles/style.css" />
     
@@ -304,9 +305,6 @@
                 <button type="submit">Submit Booking</button>
                 <p class="booking_status" id="booking_status" role="status" aria-live="polite"></p>
             </form>
-            <div class="image">
-                <img src="./assets/images/contact_image/contact_image.png" alt="contact_image" />
-            </div>
         </section>
         <section id="about_id">
             <div class="about_div container">
@@ -491,6 +489,33 @@
 
             const bookingForm = document.getElementById("booking_form");
             const bookingStatus = document.getElementById("booking_status");
+            const emailJsConfig = {
+                publicKey: "atsErfQW1fVRgm7wn",
+                serviceId: "service_7hq7ytf",
+                templateId: "template_ietrrel",
+            };
+
+            if (window.emailjs) {
+                emailjs.init({ publicKey: emailJsConfig.publicKey });
+            }
+
+            async function sendEmailJsBooking(booking) {
+                if (!window.emailjs) {
+                    throw new Error("Email service is still loading. Please try again.");
+                }
+
+                return emailjs.send(emailJsConfig.serviceId, emailJsConfig.templateId, {
+                    from_name: booking.name,
+                    reply_to: booking.email,
+                    name: booking.name,
+                    email: booking.email,
+                    phone: booking.phone,
+                    service: booking.service,
+                    date: booking.date,
+                    time: booking.time,
+                    message: booking.message,
+                });
+            }
 
             bookingForm?.addEventListener("submit", async (event) => {
                 event.preventDefault();
@@ -501,21 +526,34 @@
                 submitButton.disabled = true;
 
                 try {
-                    const response = await fetch("/api/bookings", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(Object.fromEntries(new FormData(bookingForm))),
-                    });
-                    const result = await response.json();
+                    const booking = Object.fromEntries(new FormData(bookingForm));
+                    let databaseSaved = false;
+                    let backendEmailSent = false;
 
-                    if (!response.ok) {
-                        throw new Error(result.message || "Booking failed");
+                    try {
+                        const response = await fetch("/api/bookings", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(booking),
+                        });
+
+                        databaseSaved = response.ok;
+                        if (response.ok) {
+                            const result = await response.json();
+                            backendEmailSent = Boolean(result.emailSent);
+                        }
+                    } catch {
+                        databaseSaved = false;
                     }
 
-                    bookingStatus.textContent = result.emailSent
-                        ? "Booking submitted. Confirmation email has been sent."
-                        : "Booking saved. Email could not be sent right now.";
-                    bookingStatus.classList.add(result.emailSent ? "success" : "warning");
+                    if (!backendEmailSent) {
+                        await sendEmailJsBooking(booking);
+                    }
+
+                    bookingStatus.textContent = databaseSaved
+                        ? "Booking submitted and email sent."
+                        : "Booking email sent. We will contact you shortly.";
+                    bookingStatus.classList.add("success");
                     bookingForm.reset();
                 } catch (error) {
                     bookingStatus.textContent = error.message || "Please try again later.";

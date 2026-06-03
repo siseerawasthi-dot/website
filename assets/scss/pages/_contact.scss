@@ -147,12 +147,101 @@
 }
 
 #Contact_id {
+    width: 1110px;
+    max-width: 85vw;
+    margin: 0 auto;
+    padding: 70px 0;
+    display: grid;
+    grid-template-columns: minmax(280px, 420px) minmax(360px, 1fr);
+    gap: 42px;
+    align-items: stretch;
+
+    @include custom_responsive(768px, 1199.9px) {
+        grid-template-columns: 1fr;
+        max-width: 82vw;
+    }
+
+    @include custom_responsive(0px, 767.9px) {
+        grid-template-columns: 1fr;
+        max-width: 90vw;
+        padding: 42px 0;
+        gap: 26px;
+    }
+
+    .contact_info_div {
+        margin: 0;
+        max-width: none;
+        padding: 38px 0;
+        justify-content: center;
+
+        @include custom_responsive(768px, 1199.9px) {
+            width: 100%;
+            align-items: flex-start;
+            text-align: left;
+            padding: 0;
+        }
+
+        @include custom_responsive(0px, 767.9px) {
+            width: 100%;
+            padding: 0;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        p {
+            max-width: 390px;
+            margin-bottom: 28px;
+
+            @include custom_responsive(768px, 1199.9px) {
+                max-width: 680px;
+            }
+
+            @include custom_responsive(0px, 767.9px) {
+                max-width: none;
+            }
+        }
+
+        .contact_details {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+
+            a {
+                width: auto;
+                height: auto;
+                min-height: 44px;
+                padding: 10px 14px;
+                background: rgba(9, 75, 114, 0.08);
+                color: $brand_deep;
+                justify-content: flex-start;
+                border-radius: 8px;
+                gap: 12px;
+
+                i,
+                span {
+                    color: $brand_deep;
+                    font-size: 15px;
+                }
+            }
+        }
+
+        > a[href^="tel"] {
+            width: 180px;
+            height: 54px;
+
+            @include custom_responsive(0px, 767.9px) {
+                width: 160px;
+            }
+        }
+    }
+
     .booking_form {
-        width: 420px;
-        padding: 26px;
+        width: 100%;
+        padding: 32px;
         border-radius: 8px;
         background: #ffffff;
-        box-shadow: 0 18px 45px rgba(15, 35, 52, 0.12);
+        box-shadow: 0 16px 40px rgba(9, 75, 114, 0.14);
         border: 1px solid rgba(9, 75, 114, 0.12);
         display: flex;
         flex-direction: column;
@@ -164,16 +253,18 @@
         }
 
         @include custom_responsive(0px, 1199.9px) {
-            width: 85%;
-            margin-bottom: 30px;
+            width: 100%;
+            margin: 0;
         }
 
         @include custom_responsive(0px, 575.9px) {
-            width: 90%;
-            padding: 20px;
+            padding: 22px;
         }
 
         .booking_form_header {
+            border-bottom: 1px solid rgba(51, 71, 91, 0.12);
+            padding-bottom: 16px;
+
             span {
                 @include font($brand_deep, $poppins, 13px, normal, 700, 18px, 1px);
                 text-transform: uppercase;
@@ -229,6 +320,10 @@
             color: $white;
             font: 700 15px/20px $poppins;
             cursor: pointer;
+        }
+
+        button:hover {
+            background: #0d5d8d;
         }
 
         button:disabled {
