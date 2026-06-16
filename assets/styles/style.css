@@ -246,6 +246,21 @@ header .header_box .change_button:hover,.desktop_language_toggle:hover,.banner_s
   #Contact_id:before{inset:18px -12px;border-radius:24px}
   #service_sec .service_div .service_list_right .service_list_box .single_service_box{box-shadow:0 12px 0 rgba(9,75,114,.05),0 24px 54px rgba(12,38,56,.12)}
 }
+
+/* Dimensional background system */
+body{background:linear-gradient(135deg,#263746 0%,#33475b 45%,#152633 100%)}
+.page_body{position:relative;isolation:isolate}
+.page_body:before,.page_body:after{content:"";position:absolute;pointer-events:none;z-index:-1}
+.page_body:before{inset:0;background:radial-gradient(circle at 12% 8%,rgba(214,174,96,.18),transparent 28%),radial-gradient(circle at 88% 20%,rgba(9,75,114,.18),transparent 30%),linear-gradient(180deg,rgba(255,255,255,.06),transparent 18%)}
+.page_body:after{width:560px;height:560px;right:-260px;top:150px;border-radius:42px;background:linear-gradient(145deg,rgba(255,255,255,.26),rgba(9,75,114,.08));box-shadow:0 50px 110px rgba(12,38,56,.18);transform:rotateX(62deg) rotateZ(-28deg);transform-origin:center}
+.banner_sec:after{content:"";position:absolute;right:6%;bottom:5%;width:360px;height:250px;border-radius:32px;background:linear-gradient(145deg,rgba(255,255,255,.5),rgba(214,174,96,.16));box-shadow:0 38px 90px rgba(12,38,56,.16);transform:perspective(900px) rotateX(62deg) rotateZ(-18deg);pointer-events:none}
+#service_sec,#testimonial_id,#Contact_id{position:relative;z-index:1}
+#service_sec:before,#testimonial_id:before{content:"";position:absolute;inset:34px 5%;border-radius:36px;background:linear-gradient(135deg,rgba(255,255,255,.5),rgba(9,75,114,.05));box-shadow:0 30px 80px rgba(12,38,56,.08);transform:perspective(1000px) rotateX(2deg);z-index:-1;pointer-events:none}
+@media(max-width:767.9px){
+  .page_body:after,.banner_sec:after{display:none}
+  .page_body:before{background:radial-gradient(circle at 20% 3%,rgba(214,174,96,.14),transparent 28%),radial-gradient(circle at 90% 18%,rgba(9,75,114,.14),transparent 32%)}
+  #service_sec:before,#testimonial_id:before{inset:18px 12px;border-radius:24px}
+}
 @media (max-width: 1299.9px) {
   .banner_sec .banner_div { min-height: 0; }
   .banner_sec .banner_div .left_info_div h1 { max-width: 560px; font-size: 52px; }
