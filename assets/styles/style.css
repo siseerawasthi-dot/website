@@ -210,6 +210,42 @@ header .header_box .header_logo h3{line-height:1.12}
 @media(max-width:390px){
   header .header_box .header_logo h3{font-size:16px;max-width:160px}
 }
+
+/* Premium 3D polish */
+:root{--premium-ink:#102d3f;--premium-blue:#094b72;--premium-gold:#d6ae60;--premium-paper:#fbfdff;--premium-shadow:0 28px 70px rgba(12,38,56,.18)}
+.page_body{box-shadow:0 0 0 1px rgba(255,255,255,.18),0 34px 100px rgba(0,0,0,.28)}
+header{position:relative;z-index:20;background:rgba(251,253,255,.92);backdrop-filter:blur(16px);box-shadow:0 10px 35px rgba(12,38,56,.08)}
+header .header_box .header_logo img{filter:drop-shadow(0 10px 18px rgba(9,75,114,.22))}
+header .header_box .change_button,.desktop_language_toggle,.banner_sec .banner_div .left_info_div .get_start_button,#Contact_id .booking_form button{box-shadow:0 12px 0 #063d5f,0 22px 36px rgba(9,75,114,.22);transform:translateY(-2px)}
+header .header_box .change_button:hover,.desktop_language_toggle:hover,.banner_sec .banner_div .left_info_div .get_start_button:hover,#Contact_id .booking_form button:hover{transform:translateY(0);box-shadow:0 7px 0 #063d5f,0 14px 26px rgba(9,75,114,.2)}
+.banner_sec{perspective:1200px;overflow:hidden}
+.banner_sec .banner_div .left_info_div .photo_div{transform:rotateY(-5deg) rotateX(2deg);transform-style:preserve-3d}
+.banner_sec .banner_div .left_info_div .photo_div .hero_portrait{transform:translateZ(24px);box-shadow:0 28px 60px rgba(16,45,63,.24)}
+.banner_sec .banner_div .left_info_div .photo_div .lawyer_info{transform:translateZ(54px)}
+.banner_sec .banner_div .left_info_div .photo_div .plar_button{box-shadow:0 9px 0 #063d5f,0 18px 30px rgba(9,75,114,.25)}
+.banner_sec .banner_div .left_info_div .legal_focus_list li{box-shadow:0 10px 22px rgba(9,75,114,.09),inset 0 1px 0 rgba(255,255,255,.9)}
+#service_sec{background:linear-gradient(180deg,#f6fbff 0%,#eef6fb 100%)}
+#service_sec .service_div .service_list_right .service_list_box{perspective:1000px}
+#service_sec .service_div .service_list_right .service_list_box .single_service_box{border:1px solid rgba(9,75,114,.08);background:linear-gradient(145deg,#fff 0%,#f4f9fd 100%);box-shadow:0 18px 0 rgba(9,75,114,.06),0 28px 70px rgba(12,38,56,.14);transform:translateY(0) rotateX(0);transition:transform .35s ease,box-shadow .35s ease}
+#service_sec .service_div .service_list_right .service_list_box .single_service_box:hover{transform:translateY(-8px) rotateX(3deg);box-shadow:0 24px 0 rgba(9,75,114,.05),0 38px 90px rgba(12,38,56,.19)}
+#counter .counter_div{box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 28px 70px rgba(9,75,114,.22)}
+#testimonial_id .testimonial_div .single_testimonial .comment_box{border:1px solid rgba(9,75,114,.08);box-shadow:0 20px 0 rgba(9,75,114,.05),var(--premium-shadow)}
+#Contact_id{position:relative}
+#Contact_id:before{content:"";position:absolute;inset:28px -40px;border-radius:36px;background:linear-gradient(135deg,rgba(9,75,114,.08),rgba(214,174,96,.1));filter:blur(.2px);z-index:-1}
+#Contact_id .contact_info_div .contact_details a{box-shadow:0 12px 28px rgba(9,75,114,.08),inset 0 1px 0 rgba(255,255,255,.9)}
+#Contact_id .booking_form{border:1px solid rgba(9,75,114,.12);background:linear-gradient(145deg,#fff 0%,#f7fbff 100%);box-shadow:0 22px 0 rgba(9,75,114,.06),0 42px 95px rgba(12,38,56,.18)}
+#Contact_id .booking_form input,#Contact_id .booking_form select,#Contact_id .booking_form textarea{box-shadow:inset 0 2px 5px rgba(12,38,56,.04),0 10px 22px rgba(12,38,56,.05)}
+#about_id{box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 -22px 80px rgba(12,38,56,.1)}
+#footer_id{box-shadow:0 -18px 60px rgba(12,38,56,.14)}
+@media(max-width:991.9px){
+  .banner_sec .banner_div .left_info_div .photo_div{transform:none}
+  header .header_box .change_button,.desktop_language_toggle,.banner_sec .banner_div .left_info_div .get_start_button,#Contact_id .booking_form button{box-shadow:0 8px 0 #063d5f,0 16px 28px rgba(9,75,114,.18)}
+}
+@media(max-width:767.9px){
+  .page_body{box-shadow:none}
+  #Contact_id:before{inset:18px -12px;border-radius:24px}
+  #service_sec .service_div .service_list_right .service_list_box .single_service_box{box-shadow:0 12px 0 rgba(9,75,114,.05),0 24px 54px rgba(12,38,56,.12)}
+}
 @media (max-width: 1299.9px) {
   .banner_sec .banner_div { min-height: 0; }
   .banner_sec .banner_div .left_info_div h1 { max-width: 560px; font-size: 52px; }
